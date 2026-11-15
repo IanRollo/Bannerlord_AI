@@ -211,7 +211,10 @@ Built each tick on the main thread as an immutable snapshot, then rendered to a 
 
 - **M0, scaffold:** solution, projects, NuGet refs, SubModule.xml, packaging script.
 - **M1, Core:** models, formatter, conditions, cadence, validator, LLM clients, BattleBrain; unit tests.
-- **M2, Sim harness:** toy battle and recorded-response runs; optional live tuning.
+- ~~**M2, Sim harness**~~: dropped; behavior gets validated in the real game instead (see [TESTING.md](TESTING.md)).
+
+**Status (2026-11-15):** M0, M1 and M3 done. Core has 392 passing unit tests; the adapter compiles against the 1.4.8
+reference assemblies. Paused until the game is available for M4.
 - **M3, Field-battle adapter:** MissionBehavior, TacticLlmDirected, custom behaviors, SnapshotBuilder,
   CommandApplier, MCM settings, order log. Compiles against 1.4.8.
 - **M4, first in-game test (on the gaming machine):** checklist in section 10.

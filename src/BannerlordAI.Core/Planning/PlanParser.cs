@@ -134,15 +134,17 @@ public static class PlanParser
         {
             var directive = ToDirective(d, basis, outcome.Warnings, "lieutenant");
             if (directive == null) continue;
-            if (!plan.Directives.ContainsKey(directive.FormationId))
+            if (!plan.Directives.TryGetValue(directive.FormationId, out var current))
             {
                 outcome.Warnings.Add($"lieutenant adjusted {directive.FormationId}, which has no directive in the plan; ignored");
                 continue;
             }
+            // An unreadable action from the lieutenant means "unchanged", not "hold".
+            var action = Wire.TryParseAction(d.Action, out _) ? directive.Action : current.Action;
             patches.Add(new DirectivePatch
             {
                 FormationId = directive.FormationId,
-                Action = directive.Action,
+                Action = action,
                 Target = directive.Target,
                 Side = directive.Side,
                 Anchor = directive.Anchor,
