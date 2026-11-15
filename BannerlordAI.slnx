@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/BannerlordAI.Core/BannerlordAI.Core.csproj" />
+    <Project Path="src/BannerlordAI.Module/BannerlordAI.Module.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/BannerlordAI.Core.Tests/BannerlordAI.Core.Tests.csproj" />
+  </Folder>
+</Solution>
